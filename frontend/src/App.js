@@ -11,7 +11,8 @@ import {
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const API_URL = "http://localhost:5000/api/news";
+const API_URL =
+  process.env.REACT_APP_API_URL || "http://localhost:5000/api/news";
 
 function App() {
   const [news, setNews] = useState([]);
@@ -27,14 +28,18 @@ function App() {
         setNews(data);
         setLoading(false);
       })
-      .catch(() => setLoading(false));
+      .catch((err) => {
+        console.error("Error fetching news:", err);
+        setLoading(false);
+      });
   }, []);
 
-  // Sentiment counts
+  // 📊 Sentiment counts
   const positiveCount = news.filter(n => n.sentiment === "Positive").length;
   const neutralCount  = news.filter(n => n.sentiment === "Neutral").length;
   const negativeCount = news.filter(n => n.sentiment === "Negative").length;
 
+  // 🔍 Filtered news
   const filteredNews = news.filter(article => {
     const matchesSearch = article.title
       .toLowerCase()
@@ -47,23 +52,26 @@ function App() {
     return matchesSearch && matchesSentiment;
   });
 
+  // 🥧 Pie chart data
   const pieData = {
     labels: ["Positive", "Neutral", "Negative"],
     datasets: [
       {
         data: [positiveCount, neutralCount, negativeCount],
         backgroundColor: ["#2ecc71", "#95a5a6", "#e74c3c"],
+        borderWidth: 1,
       },
     ],
   };
 
   return (
     <div className="app-container">
+      {/* HEADER */}
       <div className="header">
         <h1>📰 Dynamic News Aggregator</h1>
       </div>
 
-      {/* SEARCH + FILTER */}
+      {/* SEARCH */}
       <input
         className="search-bar"
         placeholder="Search news..."
@@ -71,6 +79,7 @@ function App() {
         onChange={(e) => setSearch(e.target.value)}
       />
 
+      {/* FILTERS */}
       <div className="filters">
         {["All", "Positive", "Neutral", "Negative"].map(type => (
           <button
@@ -121,7 +130,7 @@ function App() {
             ))}
         </div>
 
-        {/* RIGHT: PIE CHART */}
+        {/* RIGHT: FIXED PIE CHART */}
         <div className="chart-section">
           <h3>📊 Sentiment Overview</h3>
           <Pie data={pieData} />
