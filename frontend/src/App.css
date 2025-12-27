@@ -1,0 +1,230 @@
+/* ===== Global Background ===== */
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.35),
+      rgba(0, 0, 0, 0.35)
+    ),
+    url("C:\Users\HP\OneDrive\Pictures\Saved Pictures\OneDrive\Desktop\dynamic-news-aggregator\frontend\public\bg-news.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  min-height: 100vh;
+}
+
+/* ===== App Layout ===== */
+.app-container {
+  max-width: 1200px; 
+  margin: 40px auto;
+  padding: 0 16px;
+}
+
+/* ===== Header ===== */
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-size: 30px;
+  color: #fdfdfd;
+  letter-spacing: 0.5px;
+}
+
+/* ===== Main Layout ===== */
+.main-layout {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+/* ===== News Section ===== */
+.news-section {
+  flex: 2;
+}
+
+/* ===== News Card ===== */
+.news-card {
+  background: rgb(142, 142, 142);
+  border-radius: 14px;
+  padding: 20px 24px;
+  margin-bottom: 22px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.news-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* ===== Title ===== */
+.news-title {
+  font-size: 19px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+/* ===== Meta Info ===== */
+.meta {
+  font-size: 13px;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+/* ===== Sentiment Badge ===== */
+.sentiment {
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.sentiment.positive {
+  background-color: #ebeae7;
+  color: #1e8449;
+}
+
+.sentiment.neutral {
+  background-color: #ecf0f1;
+  color: #34495e;
+}
+
+.sentiment.negative {
+  background-color: #fdecea;
+  color: #922b21;
+}
+
+/* ===== Link ===== */
+.read-link {
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  font-weight: 500;
+  color: #2980b9;
+}
+
+.read-link:hover {
+  text-decoration: underline;
+}
+
+/* ===== Search Bar ===== */
+.search-bar {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+}
+
+/* ===== Filter Buttons ===== */
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.filters button {
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  background: #e0e0e0;
+}
+
+.filters button.active {
+  background: rgb(92, 91, 91);
+  color: white;
+}
+
+/* ===== Summary Cards ===== */
+.summary {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.summary-card {
+  flex: 1;
+  padding: 12px;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.summary-card.positive {
+  background: #d4f8e8;
+}
+
+.summary-card.neutral {
+  background: #eceff1;
+}
+
+.summary-card.negative {
+  background: #e7e7e7;
+}
+
+/* ===== Chart Section ===== */
+.chart-section {
+  flex: 1;
+  background: rgb(142, 142, 142);
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  position: sticky;
+  top: 20px;          /* distance from top while scrolling */
+  height: fit-content;
+}
+
+.chart-section h3 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* ===== Center Text ===== */
+.center-text {
+  text-align: center;
+  color: #a48d5a;
+}
+
+/* ===== Dark Mode ===== */
+.dark body {
+  background: #121212;
+}
+
+.dark .news-card {
+  background: #1e1e1e;
+  color: #fff;
+}
+
+.dark .meta {
+  color: #bbb;
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 900px) {
+  .main-layout {
+    flex-direction: column;
+  }
+
+  .summary,
+  .filters {
+    flex-direction: static;
+  }
+}
