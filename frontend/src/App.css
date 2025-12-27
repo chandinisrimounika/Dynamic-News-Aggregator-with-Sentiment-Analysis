@@ -8,7 +8,7 @@ body {
       rgba(0, 0, 0, 0.35),
       rgba(0, 0, 0, 0.35)
     ),
-    url("C:\Users\HP\OneDrive\Pictures\Saved Pictures\OneDrive\Desktop\dynamic-news-aggregator\frontend\public\bg-news.jpg");
+    url("../public/bg-news.png");
 
   background-size: cover;
   background-position: center;
