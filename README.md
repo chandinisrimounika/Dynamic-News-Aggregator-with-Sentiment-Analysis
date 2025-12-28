@@ -72,7 +72,8 @@ REACT_APP_API_URL=https://dynamic-news-aggregator.onrender.com/api/news
 
 ---
 👩‍💻 Author
-Chandini Sri Mounika
-GitHub: https://github.com/chandinisrimounika
+Chandini Sri Mounika vissamsetti
+
+GitHub: [https://github.com/chandinisrimounika](https://github.com/ChandiniSriMounika)
 
 This project demonstrates full-stack development, AI integration, and cloud deployment using modern web technologies.
